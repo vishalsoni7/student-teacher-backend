@@ -12,10 +12,10 @@ studentRouter.get("/", async (req, res) => {
 });
 
 studentRouter.post('/', async (req, res) => {
-  const { name, age, grade, marks, attendance, gender } = req.body;
+  const { name, age, grade, marks, attendance, gender, className } = req.body;
 
   try {
-    const student = new Student({ name, age, grade, marks, attendance, grade });
+    const student = new Student({ name, age, grade, marks, attendance, grade, className });
     await student.save();
     res.status(201).json(student);
   } catch (error) {
